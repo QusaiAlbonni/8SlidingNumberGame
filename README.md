@@ -4,6 +4,7 @@ this is a simple 8 puzzle game using OpenGL
 opengl 4.6
 
 required dependencies:
+
 GLAD for loading OpenGL
 stb_image
 imgui
