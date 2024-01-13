@@ -10,7 +10,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include <learnopengl/shader_t.h>
+#include <shader_t.h>
 
 #include <SFML/Audio.hpp>
 
