@@ -20,9 +20,9 @@ Finally, building the project is straight foreword,
 
 ## Libraries Used
 
-- Glfw: Creates OpenGL window
-- Glad: Loads OpenGL functions
-- SFML: Plays audio files
-- stb: Loads image files
-- ImGUI: Adds Buttons to glfw window
-- GLM: Serves OpenGL mathematics
+- [Glfw](https://github.com/glfw/glfw): Creates OpenGL window
+- [Glad](https://github.com/Dav1dde/glad): Loads OpenGL functions
+- [SFML](https://github.com/SFML/SFML): Plays audio files
+- [stb](https://github.com/nothings/stb): Loads image files
+- [ImGUI](https://github.com/ocornut/imgui): Adds Buttons to glfw window
+- [GLM](https://github.com/g-truc/glm): Serves OpenGL mathematics
