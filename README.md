@@ -1,6 +1,6 @@
 ## SlidingNumbers
 
-SlidingNumbers game, made with modern OpenGL (4.6)
+SlidingNumbers game, made with modern OpenGL (3.3+)
 
 ![Demo](./images/demo.png)
 

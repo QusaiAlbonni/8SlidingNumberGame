@@ -113,8 +113,8 @@ int main(int argc, char* argv[])
 {
 
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 #ifdef __APPLE__
@@ -124,7 +124,9 @@ int main(int argc, char* argv[])
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Sliding Numbers (Puzzle)", NULL, NULL);
     if (window == NULL)
     {
+#ifdef _DEBUG
         std::cout << "Failed to create GLFW window" << std::endl;
+#endif
         glfwTerminate();
         return -1;
     }
@@ -135,7 +137,9 @@ int main(int argc, char* argv[])
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
+#ifdef _DEBUG
         std::cout << "Failed to initialize GLAD" << std::endl;
+#endif // _DEBUG
         return -1;
     }
 
@@ -191,7 +195,11 @@ int main(int argc, char* argv[])
     sf::SoundBuffer sbuffer;
     if (!sbuffer.loadFromFile("./assets/Audio/whoosh.wav"))
     {
+#ifdef _DEBUG
         std::cout << "I failed sound" << "\n";
+#else
+        std::cout << "MISSING FILES REINSTALL GAME" << std::endl;
+#endif // _DEBUG
     }
     whoosh = sf::Sound(sbuffer);
     whoosh.setVolume(30.0f);
@@ -230,7 +238,11 @@ int main(int argc, char* argv[])
         }
         else
         {
+#ifdef _DEBUG
             std::cout << "Failed to load texture" << std::endl;
+#else
+            std::cout << "MISSING FILES REINSTALL GAME" << std::endl;
+#endif // _DEBUG
         }
         stbi_image_free(data);
     }
@@ -386,7 +398,9 @@ void processInput(GLFWwindow* window)
                     whoosh.play();
                 }
             }
+#ifdef _DEBUG
             std::cout << "Cursor Position at (" << mouseX << " : " << mouseY << ")\n";
+#endif // DEBUG
         }
     }
 }
@@ -426,7 +440,9 @@ bool checkWin(int board[3][3])
 bool checkMove()
 {
     glm::ivec2 varifiedInd = mapValues(mouseX, mouseY);
+#ifdef _DEBUG
     std::cout << varifiedInd.x << "\t" << varifiedInd.y << "\n";
+#endif // _DEBUG
     if (varifiedInd.x == -1 || varifiedInd.y == -1)
     {
         return false;
@@ -604,11 +620,16 @@ void style_ImGui()
 void checkConsoleInput(int argc, char* argv[])
 {
     bool useArgs = false;
+#ifdef _DEBUG
     std::cout << argc << "\n";
+#endif // _DEBUG
     error = hasDuplicates(argc, argv);
     for (int i = 0; i < argc; i++)
     {
+#ifdef _DEBUG
         std::cout << *argv[i] << "\t";
+#endif // _DEBUG
+
     }
     if (argc == 1)
     {
@@ -673,7 +694,9 @@ bool hasDuplicates(int argc, char* argv[])
         std::string arg(argv[i]);
 
         if (uniqueArguments.find(arg) != uniqueArguments.end()) {
+#ifdef _DEBUG
             std::cout << "Duplicate argument found: " << arg << std::endl;
+#endif // DEBUG
             return true;
         }
         else {

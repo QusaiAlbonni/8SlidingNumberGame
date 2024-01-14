@@ -164,7 +164,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>.\dependencies\libs</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;sfml-audio-d.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;sfml-audio.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>pwsh -file .\automation\post-build.ps1 "$(ProjectDir.TrimEnd('\'))" "$(outputPath.TrimEnd('\'))"</Command>
